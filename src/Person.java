@@ -34,6 +34,6 @@ public abstract class Person {
         this.age = age;
     }
 
-    // Абстрактынй метод возвращает цель человека
+    // returns actor specific goal in the studying process
     public abstract String getGoal();
 }
