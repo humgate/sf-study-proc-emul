@@ -1,3 +1,4 @@
+// enum encapsulates the list of studying disciplines
 public enum Courses {
     JAVA,
     ANDROID,

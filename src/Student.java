@@ -1,3 +1,4 @@
+//Student class encapsulates student actors in the studying process
 public class Student extends Person{
 
     public Student(String name, String surName, int age) {

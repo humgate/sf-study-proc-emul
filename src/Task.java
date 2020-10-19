@@ -1,3 +1,4 @@
+// Base class encapsulate task in studying process
 public abstract class Task {
     public int getNumber() {
         return number;

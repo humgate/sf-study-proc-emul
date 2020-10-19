@@ -1,3 +1,4 @@
+// Base class encapsulates an actor in studying process
 public abstract class Person {
 
     private String name;
