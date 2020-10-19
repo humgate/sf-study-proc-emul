@@ -18,16 +18,16 @@ public class Mentor extends Person implements Staff{
     //Returns mentor specific goal in the studying process
     @Override
     public String getGoal() {
-        return "This is my another job";
+        return "This is my additional job";
     }
 
     //Implements help action to a student in parameter
     @Override
     public void helpStudent(Student student) {
         System.out.println("Dear, " + student.getName() + "! Success is not final, failure is not fatal: it is the " +
-                "courage to continue that counts.");
+                "courage to continue that counts. Winston Churchill.");
     }
-    //Checks the task
+    //Checks the code. Refreshes mentor moog state and then accepts or rejects the task based on it
     public boolean checkTask(Task task) {
         mentorMoodGood = rand.nextInt(5000) > 1000;
         if (mentorMoodGood) {
