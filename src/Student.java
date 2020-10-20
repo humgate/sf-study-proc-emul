@@ -10,7 +10,7 @@ public class Student extends Person{
         super(name, surName, age);
         this.mentor = mentor;
         tasksCompleted = 0;
-        this.allTasksCompleted = false;
+        allTasksCompleted = false;
     }
 
     /* Resolves batch of tasks passed in parameters. Class instance this.tasksCompleted value must be less than
@@ -23,7 +23,7 @@ public class Student extends Person{
                 resolveTask(tasksArray[i + 1]);
             } else {
                 allTasksCompleted = true;
-                System.out.println("_resolvetasks method for student " + this.getName() + " " + this.getSurName() +
+                System.out.println("resolvetasks method for student " + this.getName() + " " + this.getSurName() +
                         " ended up with all tasks completed.");
                 break;
             }

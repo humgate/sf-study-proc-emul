@@ -3,7 +3,7 @@ import java.util.Random;
 // Class Mentor encapsulates the mentor actor
 public class Mentor extends Person implements Staff{
     private boolean mentorMoodGood;
-    private static Random rand;
+    private static Random rand = new Random() ;
 
     public Mentor(String name, String surName, int age, boolean mentorMoodGood) {
         super(name, surName, age);
@@ -31,10 +31,10 @@ public class Mentor extends Person implements Staff{
     public boolean checkTask(Task task) {
         mentorMoodGood = rand.nextInt(5000) > 1000;
         if (mentorMoodGood) {
-            System.out.println(" The task with number " + task.getNumber() + " accepted.");
+            System.out.println("mentor: The task with number " + task.getNumber() + " accepted.");
             return true;
         } else {
-            System.out.println(" The task with number " + task.getNumber() + " rejected.");
+            System.out.println("mentor: The task with number " + task.getNumber() + " rejected.");
             return false;
         }
     }

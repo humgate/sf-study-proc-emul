@@ -18,7 +18,21 @@ public class Application {
 
     public static void main(String[] args) {
 
-        //Create tasks array
+        //Creating the Tasks array
+        initTasks();
+
+        //Create mentors array
+        initMentors();
+
+        //Create students array
+        initStudents();
+
+        //Launch the process of solving tasks
+        launchTasksProcessing();
+    }
+
+    //Create the Tasks array
+    private static void initTasks() {
         for (int i = 0; i < TASKS_AMOUNT; i++) {
             switch (rand.nextInt(3)) {
                 case (0) -> {
@@ -39,12 +53,13 @@ public class Application {
                 }
             }
         }
-
         //Pause program flow until any input from user. Needed to see the output above.
         System.out.println("Press any key to continue");
         scanner.nextLine();
+    }
 
-        //Create mentors array
+    //Create the Mentors array
+    private static void initMentors() {
         mentorArr[0] = new Mentor("Ivan", "Ivanov",30, true);
         System.out.println(mentorArr[0].getName() + " " + mentorArr[0].getSurName());
         mentorArr[1] = new Mentor("John", "Doe",32, true);
@@ -52,21 +67,42 @@ public class Application {
 
         System.out.println("Press any key to continue");
         scanner.nextLine();
+    }
 
+    //Create the Students array
+    private static void initStudents() {
         //Create students array
         for (int i = 0; i < STUDENT_AMOUNT ; i++) {
-            studentArr[i] = new Student("Студ.имя" + i, " Фамилия" + i, 30+rand.nextInt(15),
+            studentArr[i] = new Student("Студ.имя" + i, "Фамилия" + i, 30+rand.nextInt(15),
                     mentorArr[i%2]);
             System.out.println(studentArr[i].getName() + " " + studentArr[i].getSurName());
         }
-
         System.out.println("Press any key to continue");
         scanner.nextLine();
-
-
-
     }
 
+    //Launch the process of solving tasks by students including calls to mentors for checking code typed tasks
+    private static void launchTasksProcessing () {
+        int studentsDone = 0;
+        int iterationsDone = 0;
 
+        while (Student.getAllStudTasksCompleted() < STUDENT_AMOUNT*TASKS_AMOUNT)  {
+            for (int i = 0; i < STUDENT_AMOUNT; i++) {
+                if (!studentArr[i].isAllTasksCompleted()) {
+                    studentArr[i].resolveTasks(rand.nextInt(TASKS_AMOUNT), taskArr);
+                    if (studentArr[i].isAllTasksCompleted() ) {
+                        studentsDone++;
+                    }
+                }
+                iterationsDone++;
+                System.out.println("Iteration " + iterationsDone + " done by all students. " + studentsDone +
+                        " students finished all " + TASKS_AMOUNT +  " tasks. Total tasks done: " +
+                        Student.getAllStudTasksCompleted() );
+
+                //Pause program flow until any input from user. Needed to see the output above.
+                System.out.println("Press any key to continue");
+                scanner.nextLine();
+            }
+        }
+    }
 }
-
