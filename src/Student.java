@@ -13,9 +13,10 @@ public class Student extends Person{
         allTasksCompleted = false;
     }
 
-    /* Resolves batch of tasks passed in parameters. Class instance this.tasksCompleted value must be less than
-    amount of Tasks array parameter length, otherwise it means all tasks completed so class instance
-    this.allTasksCompleted is set to true and no calls to the resolveTask method.
+    /**
+    * Resolves batch of tasks passed in parameters. Class instance this.tasksCompleted value must be less than
+    * amount of Tasks array parameter length, otherwise it means all tasks completed, so this.allTasksCompleted class
+    * instance is set to true and no calls to the resolveTask method.
     */
     public void resolveTasks (int tasksToSolve, Task[] tasksArray) {
         for (int i = 0; i < tasksToSolve; i++) {

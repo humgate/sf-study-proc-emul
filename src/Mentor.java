@@ -30,7 +30,7 @@ public class Mentor extends Person implements Staff{
     //Checks the code. Refreshes mentor moog state and then accepts or rejects the task based on it
     public boolean checkTask(Task task) {
         mentorMoodGood = rand.nextInt(5000) > 1000;
-        if (mentorMoodGood) {
+        if (isMentorMoodGood()) {
             System.out.println("mentor: The task with number " + task.getNumber() + " accepted.");
             return true;
         } else {
