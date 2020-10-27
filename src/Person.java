@@ -1,4 +1,9 @@
+import lombok.Getter;
+import lombok.Setter;
+
 // Base class encapsulates an actor in studying process
+@Getter
+@Setter
 public abstract class Person {
 
     private String name;
@@ -10,7 +15,7 @@ public abstract class Person {
         this.surName = surName;
         this.age = age;
     }
-
+/*
     public String getName() {
         return name;
     }
@@ -34,7 +39,7 @@ public abstract class Person {
     public void setAge(int age) {
         this.age = age;
     }
-
+*/
     // returns actor specific goal in the studying process
     public abstract String getGoal();
 }
